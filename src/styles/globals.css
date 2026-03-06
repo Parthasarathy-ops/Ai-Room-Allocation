@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg-deep: #050505;
+    --bg-surface: #0a0a0c;
+    --neon-cyan: #00f2ff;
+    --neon-purple: #b200ff;
+    --neon-pink: #ff007f;
+    --neon-red: #ff003c;
+    --neon-green: #39ff14;
+
+    --shadow-cyan: 0 0 10px rgba(0, 242, 255, 0.4);
+    --shadow-purple: 0 0 10px rgba(178, 0, 255, 0.4);
+
+    --text-primary: #ffffff;
+    --text-muted: #88888b;
+
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --glass-effect: blur(10px);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Base Neon Effects */
+.neon-text-cyan {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.neon-text-purple {
+    color: var(--neon-purple);
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+.neon-border-cyan {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: var(--shadow-cyan);
+}
+
+.neon-border-purple {
+    border: 1px solid var(--neon-purple);
+    box-shadow: var(--shadow-purple);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(10, 10, 12, 0.7);
+    backdrop-filter: var(--glass-effect);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: var(--neon-cyan);
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input,
+select,
+textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 8px rgba(0, 242, 255, 0.3);
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: var(--shadow-cyan);
+}
+
+.btn-primary:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-deep);
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* Sidebar / Nav */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-glass);
+    margin-bottom: 3rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Grid / Chart helpers */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
